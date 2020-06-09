@@ -2,8 +2,8 @@ class RecruitmentsController < ApplicationController
     before_action :set_recruitment, only: [:show, :edit, :update, :destroy]
       def index
         @recruitments = Recruitment.all
-        @recruitment = Recruitment.new
-        # @recruitment = current_user.recruitments.build
+        # @recruitment = Recruitment.new
+        @recruitment = current_user.recruitments.build
 
         if params[:search].present?
             if params[:game_title].present? and params[:play_now].present?
@@ -18,8 +18,8 @@ class RecruitmentsController < ApplicationController
 
       end
       def create
-        # @recruitment = current_user.recruitments.build(recruitment_params)
-        @recruitment = Recruitment.new(recruitment_params)
+        @recruitment = current_user.recruitments.build(recruitment_params)
+        # @recruitment = Recruitment.new(recruitment_params)
         if @recruitment.save
           redirect_to recruitments_path, notice: "募集を作成しました！"
         else

@@ -25,6 +25,7 @@
 <%= render 'form' %>
 <table>
   <tr>
+    <th>ユーザーネーム</th>
     <th>今遊ぶ？</th>
     <th>ゲームタイトル</th>
     <th>コメント</th>
@@ -36,6 +37,7 @@
   </tr>
 <% @recruitments.each do |recruitment| %>
   <tr>
+    <td><%= recruitment.user.name %></td>
     <td><%= recruitment.play_now %></td>
     <td><%= recruitment.game_title %></td>
     <td><%= recruitment.comment %></td>
