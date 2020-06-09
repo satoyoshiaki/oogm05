@@ -1,0 +1,34 @@
+<% if current_user.try(:admin?) %>
+  <h1>募集一覧_admin</h1>
+<% else %>
+  <h1>募集一覧</h1>
+<% end %>
+<p><%= notice %></p>
+<h2>募集を作成する</h2>
+<%= render 'form' %>
+<table>
+  <tr>
+    <th>今遊ぶ？</th>
+    <th>ゲームタイトル</th>
+    <th>コメント</th>
+    <th>機種</th>
+    <th>画像</th>
+    <th>オンライン？オフライン？</th>
+    <th>目的</th>
+
+  </tr>
+<% @recruitments.each do |recruitment| %>
+  <tr>
+    <td><%= recruitment.user.name %></td>
+    <td><%= recruitment.play_now %></td>
+    <td><%= recruitment.game_title %></td>
+    <td><%= recruitment.comment %></td>
+    <td><%= recruitment.machine %></td>
+    <td><%= recruitment.image %></td>
+    <td><%= recruitment.on_off %></td>
+    <td><%= recruitment.purpouse %></td>
+    <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
+  </tr>
+<% end %>
+</table>
+<br>

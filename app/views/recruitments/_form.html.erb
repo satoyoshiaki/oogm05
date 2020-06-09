@@ -1,0 +1,35 @@
+<%= form_with(model: @recruitment, local: true) do |form| %>
+    <% if @recruitment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @recruitment.errors.count %>件のエラーがあります。</h2>
+      <p>作成し直してください</p>
+      <ul>
+      <% @recruitment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <%= form.label :今遊びますか？ %>
+    <%= form.select :play_now, ['今遊ぶ', '定期的に', 'あとで', 'いつか'] %>
+
+    <%= form.label :ゲームタイトル %>
+    <%= form.text_field :game_title %>
+
+    <%= form.label :コメント %>
+    <%= form.text_field :comment %>
+
+    <%= form.label :機種 %>
+    <%= form.select :machine, ['PC', 'スマホ', 'swhich','PS4', 'PSVITA', 'PS5','カードゲーム', 'xboxone', 'その他'] %>
+
+    <%= form.label :写真 %>
+    <%= form.text_field :image %>
+
+    <%= form.label :オフライン？オンライン？ %>
+    <%= form.select :on_off, ['オンライン', 'オフライン'] %>
+
+    <%= form.label :目的 %>
+    <%= form.select :purpouse, ['フレンド', '協力プレイ', '対戦','練習', '経験値稼ぎ', 'イベント周回', 'イベント参加', '大会', '楽しくお話', 'その他目的'] %>
+
+    <%= form.submit %>
+<% end %>

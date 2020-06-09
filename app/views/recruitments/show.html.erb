@@ -1,0 +1,26 @@
+<h1>募集詳細画面</h1>
+<table>
+    <tr>
+        <th>今遊ぶ？</th>
+        <th>ゲームタイトル</th>
+        <th>コメント</th>
+        <th>機種</th>
+        <th>画像</th>
+        <th>オンライン？オフライン？</th>
+        <th>目的</th>
+    </tr>
+    <tr>
+        <td><%= @recruitment.play_now %></td>
+        <td><%= @recruitment.game_title %></td>
+        <td><%= @recruitment.comment %></td>
+        <td><%= @recruitment.machine %></td>
+        <td><%= @recruitment.image %></td>
+        <td><%= @recruitment.on_off %></td>
+        <td><%= @recruitment.purpouse %></td>
+    </tr>
+</table>
+<%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
+<%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<p>
+<%= link_to '募集一覧へ', recruitments_path %>
+</p>
