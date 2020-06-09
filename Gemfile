@@ -67,3 +67,5 @@ gem 'devise-i18n'
 #日本語か
 gem 'rails_admin', '~> 2.0'
 #管理のgem
+gem 'cancancan'
+#権限のgem
