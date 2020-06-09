@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   validates :name, presence: true
-  validates :profile, length: { maximum: 250 }
+  validates :comment, length: { maximum: 250 }
 end
