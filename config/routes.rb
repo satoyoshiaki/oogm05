@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   #devise_for :users
-  resources :recruitments
 
   # resources :users, only: [:show]
 
@@ -14,11 +13,16 @@ Rails.application.routes.draw do
   #   root :to => "devise/sessions#new"
   # end
 
+  devise_for :users, :controllers => {
+    sessions: 'users/sessions'
+  }
+
+
+
   devise_scope :user do
     root "users/sessions#new"
   end
 
-  devise_for :users, :controllers => {
-    sessions: 'users/sessions'
-  }
+
+  resources :recruitments
 end
