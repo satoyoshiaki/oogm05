@@ -65,3 +65,5 @@ gem 'devise'
 #login機能
 gem 'devise-i18n'
 #日本語か
+gem 'rails_admin', '~> 2.0'
+#管理のgem
