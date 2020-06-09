@@ -1,8 +1,6 @@
-<% if current_user.try(:admin?) %>
-  <h1>募集一覧_admin</h1>
-<% else %>
+
   <h1>募集一覧</h1>
-<% end %>
+
 <p><%= notice %></p>
 <h2>募集を作成する</h2>
 <%= render 'form' %>
@@ -19,7 +17,6 @@
   </tr>
 <% @recruitments.each do |recruitment| %>
   <tr>
-    <td><%= recruitment.user.name %></td>
     <td><%= recruitment.play_now %></td>
     <td><%= recruitment.game_title %></td>
     <td><%= recruitment.comment %></td>

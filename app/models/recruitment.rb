@@ -1,5 +1,5 @@
 class Recruitment < ApplicationRecord
-    belongs_to :user
+
     validates :play_now, presence: true
     validates :game_title, presence: true
     validates :comment, presence: true
