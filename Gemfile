@@ -69,3 +69,8 @@ gem 'rails_admin', '~> 2.0'
 #管理のgem
 gem 'cancancan'
 #権限のgem
+
+
+#画像投稿のやつ
+gem 'carrierwave'
+gem 'mini_magick'
