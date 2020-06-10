@@ -5,4 +5,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :comment, length: { maximum: 250 }
+
+  has_many :favorites, dependent: :destroy
 end

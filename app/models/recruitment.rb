@@ -18,4 +18,6 @@ class Recruitment < ApplicationRecord
 
     scope :game_title_search, ->(game_title){where("game_title like?", "%#{game_title}%")}
     scope :play_now_search, ->(play_now){where(play_now: play_now)}
+    has_many :favorites, dependent: :destroy
+    has_many :favorite_users, through: :favorites, source: :user
 end
