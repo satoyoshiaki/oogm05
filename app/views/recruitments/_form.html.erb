@@ -23,7 +23,7 @@
     <%= form.select :machine, ['PC', 'スマホ', 'swhich','PS4', 'PSVITA', 'PS5','カードゲーム', 'xboxone', 'その他'] %>
 
     <%= form.label :写真 %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
 
     <%= form.label :オフライン？オンライン？ %>
     <%= form.select :on_off, ['オンライン', 'オフライン'] %>

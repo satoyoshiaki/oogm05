@@ -48,7 +48,7 @@ class RecruitmentsController < ApplicationController
 
       private
       def recruitment_params
-        params.require(:recruitment).permit(:play_now, :game_title, :comment, :machine, :image, :on_off, :purpouse )
+        params.require(:recruitment).permit(:play_now, :game_title, :comment, :machine, :image, :image_cache, :on_off, :purpouse )
       end
 
       # idをキーとして値を取得するメソッドを追加

@@ -42,7 +42,7 @@
     <td><%= recruitment.game_title %></td>
     <td><%= recruitment.comment %></td>
     <td><%= recruitment.machine %></td>
-    <td><%= recruitment.image %></td>
+    <td><%= image_tag recruitment.image.url %></td>
     <td><%= recruitment.on_off %></td>
     <td><%= recruitment.purpouse %></td>
     <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>

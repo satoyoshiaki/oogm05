@@ -1,4 +1,5 @@
 class Recruitment < ApplicationRecord
+    mount_uploader :image, ImageUploader
     belongs_to :user
     validates :play_now, presence: true
     validates :game_title, presence: true
