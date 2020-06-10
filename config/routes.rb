@@ -25,6 +25,6 @@ Rails.application.routes.draw do
     root "users/sessions#new"
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
   resources :recruitments
 end

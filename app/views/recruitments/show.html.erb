@@ -19,8 +19,10 @@
         <td><%= @recruitment.purpouse %></td>
     </tr>
 </table>
-<%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
-<%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<% if @recruitment.user_id == current_user.id %>
+    <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
+    <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<% end %>
 <p>
 <%= link_to '募集一覧へ', recruitments_path %>
 </p>
