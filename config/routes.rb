@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
 
@@ -24,6 +25,6 @@ Rails.application.routes.draw do
     root "users/sessions#new"
   end
 
-
+  resources :users, only: [:show]
   resources :recruitments
 end
