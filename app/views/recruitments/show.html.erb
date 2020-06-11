@@ -20,6 +20,11 @@
     </tr>
 </table>
 
+<% if @recruitment.user_id == current_user.id %>
+    <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
+    <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<% end %>
+
 <% unless @recruitment.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
@@ -29,11 +34,22 @@
 <% end %>
 
 
-
-<% if @recruitment.user_id == current_user.id %>
-    <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
-    <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+<h2>コメント一覧</h2>
+<% @comments.each do |c| %>
+  <div>
+    <a href="/users/<%= current_user.id %>"><%= c.user.name %></a>
+    <%= c.content %>
+    <hr>
+  </div>
 <% end %>
+
+<%= form_with(model: [@recruitment, @comment]) do |f| %>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.submit 'コメントする' %>
+<% end %>
+
+
 <p>
 <%= link_to '募集一覧へ', recruitments_path %>
 </p>
