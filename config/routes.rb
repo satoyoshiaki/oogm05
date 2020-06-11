@@ -26,7 +26,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index]
-  resources :recruitments
+
+  resources :recruitments do
+    resources :comments, only: [:create]
+  end
 
   resources :favorites, only: [:create, :destroy]
 
