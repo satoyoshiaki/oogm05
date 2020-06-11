@@ -29,6 +29,8 @@ class RecruitmentsController < ApplicationController
 
       def show
         @favorite = current_user.favorites.find_by(recruitment_id: @recruitment.id)
+        @comments = @recruitment.comments
+        @comment = Comment.new
       end
 
       def edit
