@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-
+  resources :friendships, only: [:create, :destroy]
 
   devise_scope :user do
     root "users/sessions#new"
