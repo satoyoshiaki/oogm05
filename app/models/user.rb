@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :comment, length: { maximum: 250 }
 
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
