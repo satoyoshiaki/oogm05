@@ -28,6 +28,7 @@ class RecruitmentsController < ApplicationController
       end
 
       def show
+        @favorite = current_user.favorites.find_by(recruitment_id: @recruitment.id)
       end
 
       def edit
@@ -44,6 +45,11 @@ class RecruitmentsController < ApplicationController
       def destroy
         @recruitment.destroy
         redirect_to recruitments_path, notice:"募集を削除しました！"
+      end
+
+      def favorites_index
+        @user = User.find(params[:id])
+        @recruitment = Recruitment.where(user_id: @user.id)
       end
 
       private

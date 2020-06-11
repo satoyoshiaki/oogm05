@@ -27,4 +27,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index]
   resources :recruitments
+
+  resources :favorites, only: [:create, :destroy]
+
+  get "recruitments/favorites_index/:id" => "recruitments#favorites_index", as: 'favorites_index'
 end

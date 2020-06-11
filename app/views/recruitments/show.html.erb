@@ -19,6 +19,17 @@
         <td><%= @recruitment.purpouse %></td>
     </tr>
 </table>
+
+<% unless @recruitment.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(recruitment_id: @recruitment.id), method: :post %>
+  <% end %>
+<% end %>
+
+
+
 <% if @recruitment.user_id == current_user.id %>
     <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
     <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
