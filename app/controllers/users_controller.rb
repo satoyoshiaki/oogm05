@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   end
   private
   def feed_params
-    params.require(:user).permit(:image, :image_cache)
+    params.require(:user).permit(:icon, :image, :image_cache)
   end
 end

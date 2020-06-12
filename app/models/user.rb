@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  mount_uploader :icon, ImageUploader
   has_many :recruitments, dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
