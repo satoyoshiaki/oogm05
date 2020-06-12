@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  has_many :messages, dependent: :destroy
   has_many :active_friendships, foreign_key: 'follower_id', class_name: 'Friendship', dependent: :destroy
   has_many :passive_friendships, foreign_key: 'followed_id', class_name: 'Friendship', dependent: :destroy
   has_many :followers, through: :passive_friendships, source: :follower
