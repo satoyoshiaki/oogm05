@@ -2,17 +2,32 @@
 <table>
   <thead>
       <tr>
-        <th>名前</th>
-        <th>投稿</th>
+      <th>ユーザーネーム</th>
+      <th>コメント</th>
+      <th>今遊ぶ？</th>
+      <th>ゲームタイトル</th>
+      <th>機種</th>
+      <th>画像</th>
+      <th>オンライン？オフライン？</th>
+      <th>目的</th>
       </tr>
   </thead>
   <tbody>
     <% @user.favorites.each do |favorite| %>
       <tr>
-        <td><%= favorite.user.name %></td>
+        <td><%= favorite.recruitment.user.name %></td>
         <td><%= favorite.recruitment.comment %></td>
+        <td><%= favorite.recruitment.play_now %></td>
+        <td><%= favorite.recruitment.game_title %></td>
+        <td><%= favorite.recruitment.machine %></td>
+
+        <td><%= favorite.recruitment.on_off %></td>
+        <td><%= favorite.recruitment.purpouse %></td>
+        <td><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to '投稿一覧画面に戻る', recruitments_path %>
+
+
+
