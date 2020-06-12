@@ -38,3 +38,23 @@
 </table>
 
 <%= link_to "お気に入り一覧",  favorites_index_path(@user) %>
+
+<h3>フォロー一覧</h3>
+<% @user.following.each do |user| %>
+  <table>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= link_to '詳細', user_path(user) %></td>
+    </tr>
+  </table>
+<% end %>
+
+<h3>フォロワー一覧</h3>
+<% @user.followers.each do |user| %>
+  <table>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= link_to '詳細', user_path(user) %></td>
+    </tr>
+  </table>
+<% end %>
