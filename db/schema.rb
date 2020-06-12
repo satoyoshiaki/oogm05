@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_085657) do
+ActiveRecord::Schema.define(version: 2020_06_12_062553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_06_11_085657) do
     t.datetime "updated_at", null: false
     t.index ["recruitment_id"], name: "index_comments_on_recruitment_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id", "recipient_id"], name: "index_conversations_on_sender_id_and_recipient_id", unique: true
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -40,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_06_11_085657) do
     t.index ["followed_id"], name: "index_friendships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_friendships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_friendships_on_follower_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "recruitments", force: :cascade do |t|
@@ -77,5 +98,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_085657) do
 
   add_foreign_key "comments", "recruitments"
   add_foreign_key "comments", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "recruitments", "users"
 end
