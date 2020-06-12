@@ -20,7 +20,6 @@
     <th>画像</th>
     <th>オンライン？オフライン？</th>
     <th>目的</th>
-
   </tr>
 <% @user.recruitments.each do |recruitment| %>
   <tr>
@@ -29,7 +28,7 @@
     <td><%= recruitment.game_title %></td>
     <td><%= recruitment.comment %></td>
     <td><%= recruitment.machine %></td>
-    <td><%= recruitment.image %></td>
+    <td><%= image_tag recruitment.image.to_s %></td>
     <td><%= recruitment.on_off %></td>
     <td><%= recruitment.purpouse %></td>
     <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
@@ -45,6 +44,7 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= link_to '詳細', user_path(user) %></td>
+      <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
     </tr>
   </table>
 <% end %>
@@ -55,6 +55,7 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= link_to '詳細', user_path(user) %></td>
+      <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
     </tr>
   </table>
 <% end %>
