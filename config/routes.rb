@@ -36,4 +36,8 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
 
   get "recruitments/favorites_index/:id" => "recruitments#favorites_index", as: 'favorites_index'
+
+  resources :conversations do
+    resources :messages
+  end
 end
