@@ -11,6 +11,9 @@
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     検索する▼
   </button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample01" aria-expanded="false" aria-controls="collapseExample">
+    募集する▼
+  </button>
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
@@ -44,7 +47,7 @@
 
     <div class="searchbtn">
     <%= form.hidden_field :search, value:"true" %>
-    <%= form.submit name="検索する", class: 'btn btn-primary' %>
+    <%= form.submit "検索",class: 'btn btn-primary'%>
     </div>
     <% end %>
 </div>
@@ -53,11 +56,6 @@
 </div>
 
 
-<p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample01" aria-expanded="false" aria-controls="collapseExample">
-    募集する▼
-  </button>
-</p>
 <div class="collapse" id="collapseExample01">
   <div class="card card-body">
   <h2>募集を作成する</h2>

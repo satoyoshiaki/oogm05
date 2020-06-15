@@ -10,26 +10,40 @@
       </ul>
     </div>
     <% end %>
+    <p>
     <%= form.label :今遊びますか？ %>
     <%= form.select :play_now, ['今遊ぶ', '定期的に', 'あとで', 'いつか'] %>
+    </p>
 
+    <p>
     <%= form.label :ゲームタイトル %>
     <%= form.text_field :game_title %>
+    </p>
 
+    <p>
     <%= form.label :コメント %>
     <%= form.text_area :comment %>
+    </p>
 
+    <p>
     <%= form.label :機種 %>
     <%= form.select :machine, ['PC', 'スマホ', 'swhich','PS4', 'PSVITA', 'PS5','カードゲーム', 'xboxone', 'その他'] %>
+    </p>
 
+    <p>
     <%= form.label :写真 %>
     <%= form.file_field :image %>
+    </p>
 
+    <p>
     <%= form.label :オフライン？オンライン？ %>
     <%= form.select :on_off, ['オンライン', 'オフライン'] %>
+    </p>
 
+    <p>
     <%= form.label :目的 %>
     <%= form.select :purpouse, ['フレンド', '協力プレイ', '対戦','練習', '経験値稼ぎ', 'イベント周回', 'イベント参加', '大会', '楽しくお話', 'その他目的'] %>
+    </p>
 
     <%= form.submit %>
 <% end %>
