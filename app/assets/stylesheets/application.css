@@ -26,6 +26,7 @@
     padding: 40px;
     text-align: center;
     min-width :450px;
+    margin-top: 50px;
   }
 
   .field-01 {
@@ -33,4 +34,8 @@
     max-width: 50%;
     min-width :250px;
     text-align: center;
+  }
+
+  .actions-01 {
+    margin-top: 10px;
   }
