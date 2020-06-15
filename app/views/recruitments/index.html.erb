@@ -1,62 +1,98 @@
 
+<p><%= notice %></p>
 <% if current_user.try(:admin?) %>
   <h1>募集_admin</h1>
 <% else %>
-  <h1>募集一覧</h1>
+  <h3>募集一覧</h3>
 <% end %>
 
 
-  <div class="">
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    検索する▼
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+
+  <div class="search_form">
   <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
+    <div class="field-02">
     <%= form.label :game_title, "ゲームタイトル" %>
     <%= form.text_field :game_title, class: "form-control" %>
+    </div>
 
+    <div class="field-02">
     <%= form.label :play_now, "いつ遊ぶ検索" %>
     <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
+    </div>
 
+    <div class="field-02">
     <%= form.label :machine, "機種" %>
     <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
+    </div>
 
+    <div class="field-02">
     <%= form.label :on_off, "オンライン？オフライン？" %>
     <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
+    </div>
 
+    <div class="field-02">
     <%= form.label :purpouse, "目的" %>
     <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
+    </div>
 
+    <div class="searchbtn">
     <%= form.hidden_field :search, value:"true" %>
-    <%= form.submit name="検索する" %>
+    <%= form.submit name="検索する", class: 'btn btn-primary' %>
+    </div>
     <% end %>
 </div>
 
-<p><%= notice %></p>
-<h2>募集を作成する</h2>
-<%= render 'form' %>
-<table>
-  <tr>
-    <th></th>
-    <th>ユーザーネーム</th>
-    <th>今遊ぶ？</th>
-    <th>ゲームタイトル</th>
-    <th>コメント</th>
-    <th>機種</th>
-    <th>画像</th>
-    <th>オンライン？オフライン？</th>
-    <th>目的</th>
+  </div>
+</div>
 
-  </tr>
-<% @recruitments.each do |recruitment| %>
-  <tr>
-    <td><%= image_tag @recruitment.user.icon.to_s %></td>
-    <td><%= recruitment.user.name %></td>
-    <td><%= recruitment.play_now %></td>
-    <td><%= recruitment.game_title %></td>
-    <td><%= recruitment.comment %></td>
-    <td><%= recruitment.machine %></td>
-    <td><%= image_tag recruitment.image.to_s %></td>
-    <td><%= recruitment.on_off %></td>
-    <td><%= recruitment.purpouse %></td>
-    <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
-  </tr>
-<% end %>
-</table>
-<br>
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample01" aria-expanded="false" aria-controls="collapseExample">
+    募集する▼
+  </button>
+</p>
+<div class="collapse" id="collapseExample01">
+  <div class="card card-body">
+  <h2>募集を作成する</h2>
+  <%= render 'form' %>
+
+  </div>
+</div>
+  <table>
+    <tr>
+      <th></th>
+      <th>ユーザーネーム</th>
+      <th>今遊ぶ？</th>
+      <th>ゲームタイトル</th>
+      <th>コメント</th>
+      <th>機種</th>
+      <th>画像</th>
+      <th>オンライン？オフライン？</th>
+      <th>目的</th>
+
+    </tr>
+  <% @recruitments.each do |recruitment| %>
+    <tr>
+      <td><%= image_tag @recruitment.user.icon.to_s %></td>
+      <td><%= recruitment.user.name %></td>
+      <td><%= recruitment.play_now %></td>
+      <td><%= recruitment.game_title %></td>
+      <td><%= recruitment.comment %></td>
+      <td><%= recruitment.machine %></td>
+      <td><%= image_tag recruitment.image.to_s %></td>
+      <td><%= recruitment.on_off %></td>
+      <td><%= recruitment.purpouse %></td>
+      <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
+    </tr>
+  <% end %>
+  </table>
+  <br>
+
+

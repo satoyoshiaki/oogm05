@@ -36,6 +36,20 @@
     text-align: center;
   }
 
+  .field-02 {
+    margin: auto;
+    max-width: 65%;
+    min-width :250px;
+    text-align: center;
+  }
+
+
   .actions-01 {
     margin-top: 10px;
+  }
+
+  .searchbtn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
   }
