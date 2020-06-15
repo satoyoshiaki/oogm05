@@ -8,16 +8,24 @@
 
   <div class="">
   <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
-  <%= form.label :game_title, "ゲームタイトル" %>
-  <%= form.text_field :game_title, class: "form-control" %>
+    <%= form.label :game_title, "ゲームタイトル" %>
+    <%= form.text_field :game_title, class: "form-control" %>
 
-  <%= form.label :play_now, "いつ遊ぶ検索" %>
-  <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
+    <%= form.label :play_now, "いつ遊ぶ検索" %>
+    <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
 
-  <%= form.hidden_field :search, value:"true" %>
-  <%= form.submit name="検索する" %>
-  <% end %>
+    <%= form.label :machine, "機種" %>
+    <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
 
+    <%= form.label :on_off, "オンライン？オフライン？" %>
+    <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
+
+    <%= form.label :purpouse, "目的" %>
+    <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
+
+    <%= form.hidden_field :search, value:"true" %>
+    <%= form.submit name="検索する" %>
+    <% end %>
 </div>
 
 <p><%= notice %></p>

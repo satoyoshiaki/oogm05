@@ -15,8 +15,14 @@ class Recruitment < ApplicationRecord
     enum on_off: { オンライン: 0, オフライン: 1 }
     enum purpouse: { フレンド: 0, 協力プレイ: 1, 対戦: 2, 練習: 3, 経験値稼ぎ: 4, イベント周回: 5, イベント参加: 6, 大会: 7, 楽しくお話: 8, その他の目的: 9 }
 
+
     scope :game_title_search, ->(game_title){where("game_title like?", "%#{game_title}%")}
     scope :play_now_search, ->(play_now){where(play_now: play_now)}
+    scope :machine_search, ->(machine){where(machine: machine)}
+    scope :on_off_search, ->(on_off){where(on_off: on_off)}
+    scope :purpouse_search, ->(purpouse){where(purpouse: purpouse)}
+
+
     has_many :favorites, dependent: :destroy
     has_many :favorite_users, through: :favorites, source: :user
     has_many :comments, dependent: :destroy
