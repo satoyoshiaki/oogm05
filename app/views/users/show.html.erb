@@ -42,10 +42,12 @@
 <% @user.following.each do |user| %>
   <table>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= link_to '詳細', user_path(user) %></td>
-      <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-    </tr>
+      <% unless @user.name == user.name %>
+        <td><%= user.name %></td>
+        <td><%= link_to '詳細', user_path(user) %></td>
+        <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+      <% end %>
+      </tr>
   </table>
 <% end %>
 
@@ -53,9 +55,11 @@
 <% @user.followers.each do |user| %>
   <table>
     <tr>
-      <td><%= user.name %></td>
-      <td><%= link_to '詳細', user_path(user) %></td>
-      <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+      <% unless @user.name == user.name %>
+        <td><%= user.name %></td>
+        <td><%= link_to '詳細', user_path(user) %></td>
+        <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+      <% end %>
     </tr>
   </table>
 <% end %>
