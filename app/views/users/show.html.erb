@@ -36,30 +36,51 @@
 <% end %>
 </table>
 
-<%= link_to "お気に入り一覧",  favorites_index_path(@user) %>
+<%= link_to "お気に入り一覧",  favorites_index_path(@user) %><br>
 
-<h3>フォロー一覧</h3>
-<% @user.following.each do |user| %>
-  <table>
-    <tr>
-      <% unless @user.name == user.name %>
-        <td><%= user.name %></td>
-        <td><%= link_to '詳細', user_path(user) %></td>
-        <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-      <% end %>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample03" aria-expanded="false" aria-controls="collapseExample">
+    フォロー
+  </button>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample02" aria-expanded="false" aria-controls="collapseExample">
+    フォロワー
+  </button>
+
+<div class="collapse" id="collapseExample03">
+  <div class="card card-body">
+    <% @user.following.each do |user| %>
+      <table>
+        <tr>
+          <% unless @user.name == user.name %>
+            <td><%= user.name %></td>
+            <td><%= link_to '詳細', user_path(user) %></td>
+            <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+          <% end %>
+          </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="collapse" id="collapseExample02">
+  <div class="card card-body">
+  <% @user.followers.each do |user| %>
+    <table>
+      <tr>
+        <% unless @user.name == user.name %>
+          <td><%= user.name %></td>
+          <td><%= link_to '詳細', user_path(user) %></td>
+          <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+        <% end %>
       </tr>
-  </table>
-<% end %>
+    </table>
+  <% end %>
+  </div>
+</div>
 
-<h3>フォロワー一覧</h3>
-<% @user.followers.each do |user| %>
-  <table>
-    <tr>
-      <% unless @user.name == user.name %>
-        <td><%= user.name %></td>
-        <td><%= link_to '詳細', user_path(user) %></td>
-        <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-      <% end %>
-    </tr>
-  </table>
-<% end %>
