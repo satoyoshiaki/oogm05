@@ -76,3 +76,30 @@
   .btnspace {
     margin-top: 20px;
   }
+
+  .rounded {
+    border: 1px solid;
+    margin: auto;
+    max-width: 80%;
+    text-align: left;
+  }
+
+  .icon {
+    width:80px;
+    height: 80px;
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .name {
+    margin-left: 10px;
+
+  }
+
+  .btnshow {
+    text-align: right;
+  }
+
+  .imgtext {
+    position: relative;
+  }

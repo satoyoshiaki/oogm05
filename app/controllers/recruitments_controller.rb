@@ -1,7 +1,7 @@
 class RecruitmentsController < ApplicationController
     before_action :set_recruitment, only: [:show, :edit, :update, :destroy]
       def index
-        @recruitments = Recruitment.all
+        @recruitments = Recruitment.all.order(id: "DESC")
         # @recruitment = Recruitment.new
         @recruitment = current_user.recruitments.build
 

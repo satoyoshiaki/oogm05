@@ -63,34 +63,46 @@
 
   </div>
 </div>
-  <table>
-    <tr>
-      <th></th>
-      <th>ユーザーネーム</th>
-      <th>今遊ぶ？</th>
-      <th>ゲームタイトル</th>
-      <th>コメント</th>
-      <th>機種</th>
-      <th>画像</th>
-      <th>オンライン？オフライン？</th>
-      <th>目的</th>
 
-    </tr>
+
   <% @recruitments.each do |recruitment| %>
-    <tr>
-      <td><%= image_tag @recruitment.user.icon.to_s %></td>
-      <td><%= recruitment.user.name %></td>
-      <td><%= recruitment.play_now %></td>
-      <td><%= recruitment.game_title %></td>
-      <td><%= recruitment.comment %></td>
-      <td><%= recruitment.machine %></td>
-      <td><%= image_tag recruitment.image.to_s %></td>
-      <td><%= recruitment.on_off %></td>
-      <td><%= recruitment.purpouse %></td>
-      <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
-    </tr>
+
+  <%= image_tag recruitment.user.icon.to_s, class: "icon" %><br>
+  <p class = "icon"><%= recruitment.user.name %></p>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <p>
+    ゲーム:
+    <%= recruitment.game_title %>
+    </p>
+
+    <p>
+    いつ遊ぶ？:
+    <%= recruitment.play_now %><%= recruitment.machine %>
+    </p>
+    <p>
+    機種:
+    <%= recruitment.machine %>
+    </p>
+    <p>
+    オン？オフ？:
+    <%= recruitment.on_off %>
+    </p>
+    <p>
+    目的:
+    <%= recruitment.purpouse %>
+    </p>
+    <P>
+    コメント:
+    <%= recruitment.comment %>
+    </p>
+
+    <%= image_tag recruitment.image.to_s, class: "imgtext" %>
+    <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
+    </div>
+
+    </div>
   <% end %>
-  </table>
+  </div>
   <br>
 
 

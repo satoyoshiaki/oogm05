@@ -22,17 +22,19 @@
     <th>目的</th>
   </tr>
 <% @user.recruitments.each do |recruitment| %>
-  <tr>
-    <td><%= recruitment.user.name %></td>
-    <td><%= recruitment.play_now %></td>
-    <td><%= recruitment.game_title %></td>
-    <td><%= recruitment.comment %></td>
-    <td><%= recruitment.machine %></td>
-    <td><%= image_tag recruitment.image.to_s %></td>
-    <td><%= recruitment.on_off %></td>
-    <td><%= recruitment.purpouse %></td>
-    <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
-  </tr>
+  <div class = "border border-secondary" >
+    <tr>
+      <td><%= recruitment.user.name %></td>
+      <td><%= recruitment.play_now %></td>
+      <td><%= recruitment.game_title %></td>
+      <td><%= recruitment.comment %></td>
+      <td><%= recruitment.machine %></td>
+      <td><%= image_tag recruitment.image.to_s %></td>
+      <td><%= recruitment.on_off %></td>
+      <td><%= recruitment.purpouse %></td>
+      <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
+    </tr>
+  </div>
 <% end %>
 </table>
 
@@ -40,11 +42,11 @@
 
 
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample03" aria-expanded="false" aria-controls="collapseExample">
-    フォロー
+    フォロー▼
   </button>
 
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample02" aria-expanded="false" aria-controls="collapseExample">
-    フォロワー
+    フォロワー▼
   </button>
 
 <div class="collapse" id="collapseExample03">
@@ -62,8 +64,6 @@
     <% end %>
   </div>
 </div>
-
-
 
 
 
