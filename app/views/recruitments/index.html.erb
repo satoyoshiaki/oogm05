@@ -1,14 +1,14 @@
 
 <p><%= notice %></p>
 <% if current_user.try(:admin?) %>
-  <h1>募集_admin</h1>
+  <h1 class = "user-1">募集_admin</h1>
 <% else %>
-  <h3>募集一覧</h3>
+  <h3 class = "user-1">募集一覧</h3>
 <% end %>
 
 
 <p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <button class="btn btn-primary btnspace002" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     検索する▼
   </button>
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample01" aria-expanded="false" aria-controls="collapseExample">

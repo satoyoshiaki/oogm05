@@ -1,40 +1,12 @@
+<div class = "reshowpage">
 <h1><%= @user.name %>のプロフィール</h1>
-<p><%= image_tag @user.icon.to_s %></p>
-<p>プロフィール : <%= @user.comment %></p>
+<p><%= image_tag @user.icon.to_s, class: "usershow-icon"  %></p>
+<p>プロフィール:</p><p> <%= @user.comment %></p>
 
 
 <% if @user.id == current_user.id %>
     <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
 <% end %>
-
-
-<table class = "table table-bordered">
-  <tr>
-    <th>ユーザーネーム</th>
-    <th>今遊ぶ？</th>
-    <th>ゲームタイトル</th>
-    <th>コメント</th>
-    <th>機種</th>
-    <th>画像</th>
-    <th>オンライン？オフライン？</th>
-    <th>目的</th>
-  </tr>
-<% @user.recruitments.each do |recruitment| %>
-  <div class = "border border-secondary" >
-    <tr>
-      <td><%= recruitment.user.name %></td>
-      <td><%= recruitment.play_now %></td>
-      <td><%= recruitment.game_title %></td>
-      <td><%= recruitment.comment %></td>
-      <td><%= recruitment.machine %></td>
-      <td><%= image_tag recruitment.image.to_s %></td>
-      <td><%= recruitment.on_off %></td>
-      <td><%= recruitment.purpouse %></td>
-      <td><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></td>
-    </tr>
-  </div>
-<% end %>
-</table>
 
 <%= link_to "お気に入り一覧",  favorites_index_path(@user) %><br>
 
@@ -47,7 +19,7 @@
     フォロワー▼
   </button>
 
-<div class="collapse" id="collapseExample03">
+  <div class="collapse" id="collapseExample03">
   <div class="card card-body">
     <% @user.following.each do |user| %>
       <table>
@@ -62,8 +34,6 @@
     <% end %>
   </div>
 </div>
-
-
 
 
 <div class="collapse" id="collapseExample02">
@@ -82,3 +52,43 @@
   </div>
 </div>
 
+
+<h4>過去の投稿</h4>
+
+<% @user.recruitments.each do |recruitment| %>
+  <div>
+  <div class = "reshowkakoi">
+    <div class = "showleftmargin">
+      <p><%= recruitment.game_title %></p>
+      <p><%= recruitment.play_now %></p>
+      <p><%= recruitment.machine %></p>
+      <p><%= recruitment.on_off %></p>
+      <p><%= recruitment.purpouse %></p>
+      <p><%= recruitment.comment %></p>
+      <p><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
+      <p><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></p>
+  </div>
+  </div>
+  </div>
+<% end %>
+
+
+
+
+<div class="collapse" id="collapseExample03">
+  <div class="card card-body">
+    <% @user.following.each do |user| %>
+      <table>
+        <tr>
+          <% unless @user.name == user.name %>
+            <td><%= user.name %></td>
+            <td><%= link_to '詳細', user_path(user) %></td>
+            <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+          <% end %>
+          </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+</div>

@@ -151,7 +151,6 @@
 
   .item {
     margin: auto;
-    max-width: %;
     min-width :250px;
     border: 1px solid;
     max-width: 80%;
@@ -212,7 +211,6 @@
 
 .reshowkakoi {
   margin: auto;
-  max-width: %;
   min-width :250px;
   border: 1px solid;
   max-width: 90%;
@@ -226,4 +224,8 @@
 
 .showleftmargin {
   margin-left: 20px;
+}
+
+.btnspace002 {
+  margin-left: 30px;
 }
