@@ -1,15 +1,6 @@
 <h1>募集詳細画面</h1>
-<table>
-    <tr>
-        <th>今遊ぶ？</th>
-        <th>ゲームタイトル</th>
-        <th>コメント</th>
-        <th>機種</th>
-        <th>画像</th>
-        <th>オンライン？オフライン？</th>
-        <th>目的</th>
-    </tr>
-    <tr>
+
+        <td><%= image_tag @recruitment.user.icon.to_s %></td>
         <td><%= @recruitment.play_now %></td>
         <td><%= @recruitment.game_title %></td>
         <td><%= @recruitment.comment %></td>
@@ -17,8 +8,6 @@
         <td><%= image_tag @recruitment.image.to_s %></td>
         <td><%= @recruitment.on_off %></td>
         <td><%= @recruitment.purpouse %></td>
-    </tr>
-</table>
 
 <% if @recruitment.user_id == current_user.id %>
     <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>

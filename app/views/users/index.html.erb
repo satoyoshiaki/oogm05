@@ -1,14 +1,19 @@
 <% provide(:title, 'All users') %>
-<h1>ユーザー一覧</h1>
+<h1 class = "user-1">ユーザー一覧</h1>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <div>
-      <% unless current_user.name == user.name %>
-        <%= link_to user.name, user %>
-        <%= render 'follow_form', user: user %>
-        <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
-      <% end %>
-    </div>
-  <% end %>
-</ul>
+
+<div>
+  <ul class="users">
+    <% @users.each do |user| %>
+      <div class = user-show>
+        <% unless current_user.name == user.name %>
+          <%= image_tag user.icon.to_s, class:"usershow-icon" %>
+          <h5><%= link_to user.name, user, class:"indexusername"%></h5>
+          <div class = "userindexcomment"><%= user.comment %></div>
+          <%= render 'follow_form', user: user %>
+          <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post,class:"message" %>
+        <% end %>
+      </div>
+    <% end %>
+  </ul>
+</div>
