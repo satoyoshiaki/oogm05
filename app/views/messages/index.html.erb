@@ -1,3 +1,4 @@
+<div class = "messageall">
 <% if @over_ten %>
   <%= link_to '以前のメッセージ', '?m=all' %>
 <% end %>
@@ -6,13 +7,13 @@
     <% if message.body.present? %>
       <div class="item">
         <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+          <div class="header"><%= image_tag message.user.icon.to_s, class:"usershow-icon" %><strong><%= message.user.name %></strong></div>
           <div class="list">
-            <div class="item">
+            <div class="item01">
               <i class="right triangle icon"></i>
-              <%= message.body %> /
+              <%= message.body %>
               <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
+                <div class = "timespace"><%= message.read ? '既読' : '未読' %><%= message.message_time %></div>
               <% end %>
             </div>
           </div>
@@ -22,11 +23,12 @@
   <% end %>
 </div>
 <%= form_with(model: [@conversation, @message]) do |f| %>
-  <div class="field">
+  <div class="field001">
     <%= f.text_area :body, class: "form-control" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div>
-    <%= f.submit "メッセージを送る" %>
+    <%= f.submit "メッセージを送る",class:"btn btn-primary btnshitaspace" %>
   </div>
 <% end %>
+</div>
