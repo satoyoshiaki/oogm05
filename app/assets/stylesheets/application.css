@@ -101,7 +101,8 @@
   }
 
   .imgtext {
-    position: relative;
+    max-width: 400px;
+    max-height: 200px;
   }
 
   .user-show {
@@ -179,4 +180,15 @@
 
 .btnshitaspace {
     margin-bottom: 200px;
+}
+
+.reeditpage {
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+.titlespace {
+  margin-top: 20px;
+  margin-left: 20px;
 }

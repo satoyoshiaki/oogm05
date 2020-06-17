@@ -1,3 +1,5 @@
+<div class = "reeditpage">
+
 <%= form_with(model: @recruitment, local: true) do |form| %>
     <% if @recruitment.errors.any? %>
     <div id="error_explanation">
@@ -47,3 +49,4 @@
 
     <%= form.submit "募集を作成する",class: 'btn btn-primary' %>
 <% end %>
+</div>

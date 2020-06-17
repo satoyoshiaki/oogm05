@@ -66,10 +66,9 @@
 
 
   <% @recruitments.each do |recruitment| %>
-
-  <%= image_tag recruitment.user.icon.to_s, class: "icon" %><br>
-  <p class = "icon"><%= recruitment.user.name %></p>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
+    <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+    <p class = "icon"><%= recruitment.user.name %></p>
     <p>
     ゲーム:
     <%= recruitment.game_title %>
@@ -77,7 +76,7 @@
 
     <p>
     いつ遊ぶ？:
-    <%= recruitment.play_now %><%= recruitment.machine %>
+    <%= recruitment.play_now %>
     </p>
     <p>
     機種:
@@ -91,12 +90,15 @@
     目的:
     <%= recruitment.purpouse %>
     </p>
-    <P>
+    <p>
     コメント:
+    </p>
+    <p>
     <%= recruitment.comment %>
     </p>
 
     <%= image_tag recruitment.image.to_s, class: "imgtext" %>
+    <br>
     <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
     </div>
 
