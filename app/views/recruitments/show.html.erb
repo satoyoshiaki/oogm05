@@ -1,13 +1,18 @@
-<h1>募集詳細画面</h1>
-
-        <td><%= image_tag @recruitment.user.icon.to_s %></td>
-        <td><%= @recruitment.play_now %></td>
-        <td><%= @recruitment.game_title %></td>
-        <td><%= @recruitment.comment %></td>
-        <td><%= @recruitment.machine %></td>
-        <td><%= image_tag @recruitment.image.to_s %></td>
-        <td><%= @recruitment.on_off %></td>
-        <td><%= @recruitment.purpouse %></td>
+<div class = "reshowpage">
+<h3>募集詳細画面</h3>
+      <div class = "reshowkakoi">
+        <div class = "showleftmargin">
+          <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %>
+          <strong><%= @recruitment.user.name %></strong><br>
+          <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
+          <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
+          <strong>機種:</strong><%= @recruitment.machine %><br>
+          <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
+          <strong>目的:</strong><%= @recruitment.purpouse %><br>
+          <strong>コメント:</strong><br><%= @recruitment.comment %><br>
+          <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
+        </div>
+      </div>
 
 <% if @recruitment.user_id == current_user.id %>
     <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
@@ -35,10 +40,11 @@
 <%= form_with(model: [@recruitment, @comment]) do |f| %>
   <%= f.text_field :content %>
   <br>
-  <%= f.submit 'コメントする' %>
+  <%= f.submit 'コメントする', class:"btn btn-primary commentupspace" %>
 <% end %>
 
 
 <p>
 <%= link_to '募集一覧へ', recruitments_path %>
 </p>
+</div>

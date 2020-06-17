@@ -192,3 +192,38 @@
   margin-top: 20px;
   margin-left: 20px;
 }
+
+.reshowpage {
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+.imgsize {
+  max-width: 400px;
+  max-height: 200px;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.reshospaceup {
+  margin-top: 30px;
+}
+
+.reshowkakoi {
+  margin: auto;
+  max-width: %;
+  min-width :250px;
+  border: 1px solid;
+  max-width: 90%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.commentupspace {
+  margin-top: 10px;
+}
+
+.showleftmargin {
+  margin-left: 20px;
+}
