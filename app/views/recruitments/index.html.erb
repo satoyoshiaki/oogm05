@@ -55,7 +55,7 @@
 <div class="collapse" id="collapseExample01">
   <div class="card card-body">
     <h2>募集を作成する</h2>
-    <%= render 'form' %>
+    <%= render 'form', class: "page-size" %>
   </div>
 </div>
 
@@ -66,7 +66,7 @@
         <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
           <div class="container">
             <div class="row">
-              <div class = "col-xs-12 col-lg-6">
+              <div class = "col-xs-12 col-lg-4">
                 <p class = "p-space">
                   <strong>ゲーム:</strong>
                   <%= recruitment.game_title %>
@@ -87,6 +87,8 @@
                   <strong>目的:</strong>
                   <%= recruitment.purpouse %>
                 </p>
+              </div>
+              <div class = "col-xs-12 col-lg-4">
                 <p class = "p-space">
                   <strong>コメント:</strong>
                 </p>
@@ -94,7 +96,7 @@
                   <%= recruitment.comment %>
                 </p>
               </div>
-            <div class = "col-xs-12 col-lg-6">
+            <div class = "col-xs-12 col-lg-4">
               <%= image_tag recruitment.image.to_s, class: "imgtext" %>
             </div>
             <br>
