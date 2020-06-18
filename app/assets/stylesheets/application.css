@@ -233,3 +233,8 @@
 .p-space {
   margin-bottom: 0;
 }
+
+ul.pagination {
+  width: 400px;
+  margin: auto;
+}
