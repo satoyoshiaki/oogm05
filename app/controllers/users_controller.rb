@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.order(id: "DESC").page(params[:page]).per(40)
   end
   private
   def feed_params
