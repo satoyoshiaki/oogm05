@@ -1,9 +1,4 @@
 class CommentsController < ApplicationController
-
-
-
-
-
   def create
         @recruitment = Recruitment.find(params[:recruitment_id])
         @comment = @recruitment.comments.build(comment_params)
