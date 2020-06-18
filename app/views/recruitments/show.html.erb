@@ -4,13 +4,21 @@
           <div class = "showleftmargin">
             <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %>
             <strong><%= @recruitment.user.name %></strong><br>
-            <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
-            <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
-            <strong>機種:</strong><%= @recruitment.machine %><br>
-            <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
-            <strong>目的:</strong><%= @recruitment.purpouse %><br>
-            <strong>コメント:</strong><br><%= @recruitment.comment %><br>
-            <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
+            <div class="container">
+              <div class="row">
+                <div class = "col-xs-12 col-lg-6">
+                  <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
+                  <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
+                  <strong>機種:</strong><%= @recruitment.machine %><br>
+                  <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
+                  <strong>目的:</strong><%= @recruitment.purpouse %><br>
+                  <strong>コメント:</strong><br><%= @recruitment.comment %><br>
+                </div>
+                <div class = "col-xs-12 col-lg-6">
+                  <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
