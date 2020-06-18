@@ -3,16 +3,24 @@
     <% @user.favorites.each do |favorite| %>
       <div class = "reshowkakoi">
         <div class = "showleftmargin">
-          <p><%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %></p>
-          <p class = "p-space"><strong><%= favorite.recruitment.user.name %></strong></p>
-          <p class = "p-space"><strong>ゲームタイトル:</strong><%= favorite.recruitment.game_title %></p>
-          <p class = "p-space"><strong>今遊ぶ？:</strong><%= favorite.recruitment.play_now %></p>
-          <p class = "p-space"><strong>機種:</strong><%= favorite.recruitment.machine %></p>
-          <p class = "p-space"><strong>オン？オフ？:</strong><%= favorite.recruitment.on_off %></p>
-          <p class = "p-space"><strong>目的:</strong><%= favorite.recruitment.purpouse %></p>
-          <p class = "p-space"><strong>コメント:</strong><%= favorite.recruitment.comment %></p>
-          <p><%= image_tag favorite.recruitment.image.to_s,class: "imgtext"%></p>
-          <p><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></p>
+                <p><%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %></p>
+                <p class = "p-space"><strong><%= favorite.recruitment.user.name %></strong></p>
+          <div class="container">
+            <div class="row">
+              <div class = "col-xs-12 col-lg-6">
+                <p class = "p-space"><strong>ゲームタイトル:</strong><%= favorite.recruitment.game_title %></p>
+                <p class = "p-space"><strong>今遊ぶ？:</strong><%= favorite.recruitment.play_now %></p>
+                <p class = "p-space"><strong>機種:</strong><%= favorite.recruitment.machine %></p>
+                <p class = "p-space"><strong>オン？オフ？:</strong><%= favorite.recruitment.on_off %></p>
+                <p class = "p-space"><strong>目的:</strong><%= favorite.recruitment.purpouse %></p>
+                <p class = "p-space"><strong>コメント:</strong><%= favorite.recruitment.comment %></p>
+              </div>
+              <div class = "col-xs-12 col-lg-6">
+                <p><%= image_tag favorite.recruitment.image.to_s,class: "imgtext"%></p>
+              </div>
+            </div>
+              <p><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></p>
+          </div>
         </div>
       </div>
     <% end %>
