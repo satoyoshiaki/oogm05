@@ -65,7 +65,7 @@
       <p class = "p-space"><strong>オン？オフ？:</strong><%= recruitment.on_off %></p>
       <p class = "p-space"><strong>目的:</strong><%= recruitment.purpouse %></p>
       <p class = "p-space"><strong>コメント:</strong><%= recruitment.comment %></p>
-      <p class = "p-space"><strong></strong><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
+      <p class = "p-space"><strong></strong><%= image_tag recruitment.image.to_s, class: "imgtext" %></p>
       <p><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></p>
   </div>
   </div>
