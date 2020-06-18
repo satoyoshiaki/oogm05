@@ -16,96 +16,93 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
+    <div class="search_form">
+      <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
+        <div class="field-02">
+          <%= form.label :game_title, "ゲームタイトル" %>
+          <%= form.text_field :game_title, class: "form-control" %>
+        </div>
 
-  <div class="search_form">
-  <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
-    <div class="field-02">
-    <%= form.label :game_title, "ゲームタイトル" %>
-    <%= form.text_field :game_title, class: "form-control" %>
+        <div class="field-02">
+          <%= form.label :play_now, "いつ遊ぶ検索" %>
+          <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
+        </div>
+
+        <div class="field-02">
+          <%= form.label :machine, "機種" %>
+          <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
+        </div>
+
+        <div class="field-02">
+          <%= form.label :on_off, "オンライン？オフライン？" %>
+          <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
+        </div>
+
+        <div class="field-02">
+          <%= form.label :purpouse, "目的" %>
+          <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
+        </div>
+
+        <div class="searchbtn">
+          <%= form.hidden_field :search, value:"true" %>
+          <%= form.submit "検索",class: 'btn btn-primary'%>
+        </div>
+      <% end %>
     </div>
-
-    <div class="field-02">
-    <%= form.label :play_now, "いつ遊ぶ検索" %>
-    <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
-    </div>
-
-    <div class="field-02">
-    <%= form.label :machine, "機種" %>
-    <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
-    </div>
-
-    <div class="field-02">
-    <%= form.label :on_off, "オンライン？オフライン？" %>
-    <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
-    </div>
-
-    <div class="field-02">
-    <%= form.label :purpouse, "目的" %>
-    <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
-    </div>
-
-    <div class="searchbtn">
-    <%= form.hidden_field :search, value:"true" %>
-    <%= form.submit "検索",class: 'btn btn-primary'%>
-    </div>
-    <% end %>
-</div>
-
   </div>
 </div>
 
-
 <div class="collapse" id="collapseExample01">
   <div class="card card-body">
-  <h2>募集を作成する</h2>
-  <%= render 'form' %>
-
+    <h2>募集を作成する</h2>
+    <%= render 'form' %>
   </div>
 </div>
 
 
   <% @recruitments.each do |recruitment| %>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-    <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
-    <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
-  <div class="container">
-  <div class="row">
-    <div class = "col-xs-12 col-lg-6"><p class = "p-space">
-    <strong>ゲーム:</strong>
-    <%= recruitment.game_title %>
-    </p>
-    <p class = "p-space">
-    <strong>いつ遊ぶ？:</strong>
-    <%= recruitment.play_now %>
-    </p>
-    <p class = "p-space">
-    <strong>機種:</strong>
-    <%= recruitment.machine %>
-    </p>
-    <p class = "p-space">
-    <strong>オン？オフ？:</strong>
-    <%= recruitment.on_off %>
-    </p>
-    <p class = "p-space">
-    <strong>目的:</strong>
-    <%= recruitment.purpouse %>
-    </p>
-    <p class = "p-space">
-    <strong>コメント:</strong>
-    </p>
-    <p class = "p-space">
-    <%= recruitment.comment %>
-    </p>
-    </div>
-    <div class = "col-xs-12 col-lg-6">
-    <%= image_tag recruitment.image.to_s, class: "imgtext" %>
-    </div>
-    <br>
-    </div>
-    <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
-    </div>
-    </div>
+      <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+        <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
+          <div class="container">
+            <div class="row">
+              <div class = "col-xs-12 col-lg-6">
+                <p class = "p-space">
+                  <strong>ゲーム:</strong>
+                  <%= recruitment.game_title %>
+                </p>
+                <p class = "p-space">
+                  <strong>いつ遊ぶ？:</strong>
+                  <%= recruitment.play_now %>
+                </p>
+                <p class = "p-space">
+                  <strong>機種:</strong>
+                  <%= recruitment.machine %>
+                </p>
+                <p class = "p-space">
+                  <strong>オン？オフ？:</strong>
+                  <%= recruitment.on_off %>
+                </p>
+                <p class = "p-space">
+                  <strong>目的:</strong>
+                  <%= recruitment.purpouse %>
+                </p>
+                <p class = "p-space">
+                  <strong>コメント:</strong>
+                </p>
+                <p class = "p-space">
+                  <%= recruitment.comment %>
+                </p>
+              </div>
+            <div class = "col-xs-12 col-lg-6">
+              <%= image_tag recruitment.image.to_s, class: "imgtext" %>
+            </div>
+            <br>
+          </div>
+          <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
+        </div>
+      </div>
   <% end %>
-  </div>
+    </div>
   <%= paginate @recruitments %>
   <br>

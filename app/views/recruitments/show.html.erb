@@ -1,50 +1,50 @@
 <div class = "reshowpage">
-<h3>募集詳細画面</h3>
-      <div class = "reshowkakoi">
-        <div class = "showleftmargin">
-          <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %>
-          <strong><%= @recruitment.user.name %></strong><br>
-          <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
-          <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
-          <strong>機種:</strong><%= @recruitment.machine %><br>
-          <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
-          <strong>目的:</strong><%= @recruitment.purpouse %><br>
-          <strong>コメント:</strong><br><%= @recruitment.comment %><br>
-          <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
+  <h3>募集詳細画面</h3>
+        <div class = "reshowkakoi">
+          <div class = "showleftmargin">
+            <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %>
+            <strong><%= @recruitment.user.name %></strong><br>
+            <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
+            <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
+            <strong>機種:</strong><%= @recruitment.machine %><br>
+            <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
+            <strong>目的:</strong><%= @recruitment.purpouse %><br>
+            <strong>コメント:</strong><br><%= @recruitment.comment %><br>
+            <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
+          </div>
         </div>
-      </div>
 
-<% if @recruitment.user_id == current_user.id %>
-    <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
-    <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-<% end %>
-
-<% unless @recruitment.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(recruitment_id: @recruitment.id), method: :post %>
+  <% if @recruitment.user_id == current_user.id %>
+      <%= link_to "編集する", edit_recruitment_path(@recruitment.id) %>
+      <%= link_to '募集を削除する', recruitment_path(@recruitment.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
   <% end %>
-<% end %>
+
+  <% unless @recruitment.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(recruitment_id: @recruitment.id), method: :post %>
+    <% end %>
+  <% end %>
 
 
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <a href="/users/<%= current_user.id %>"><%= c.user.name %></a>
-    <%= c.content %>
-    <hr>
-  </div>
-<% end %>
+  <h2>コメント一覧</h2>
+  <% @comments.each do |c| %>
+    <div>
+      <a href="/users/<%= current_user.id %>"><%= c.user.name %></a>
+      <%= c.content %>
+      <hr>
+    </div>
+  <% end %>
 
-<%= form_with(model: [@recruitment, @comment]) do |f| %>
-  <%= f.text_field :content %>
-  <br>
-  <%= f.submit 'コメントする', class:"btn btn-primary commentupspace" %>
-<% end %>
-
-
-<p>
-<%= link_to '募集一覧へ', recruitments_path %>
-</p>
+  <%= form_with(model: [@recruitment, @comment]) do |f| %>
+    <%= f.text_field :content %>
+    <br>
+    <%= f.submit 'コメントする', class:"btn btn-primary commentupspace" %>
+  <% end %>
+  <p>
+  <%= link_to '募集一覧へ', recruitments_path %>
+  </p>
 </div>
+
+

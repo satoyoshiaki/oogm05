@@ -1,54 +1,53 @@
 <div class = "reeditpage">
-
-<%= form_with(model: @recruitment, local: true) do |form| %>
+  <%= form_with(model: @recruitment, local: true) do |form| %>
     <% if @recruitment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @recruitment.errors.count %>件のエラーがあります。</h2>
-      <p>作成し直してください</p>
-      <ul>
-      <% @recruitment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+      <div id="error_explanation">
+        <h2><%= @recruitment.errors.count %>件のエラーがあります。</h2>
+        <p>作成し直してください</p>
+        <ul>
+        <% @recruitment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
 
     <p>
-    <%= form.label :ゲームタイトル %>
-    <%= form.text_field :game_title, class: "form-control" %>
+      <%= form.label :ゲームタイトル %>
+      <%= form.text_field :game_title, class: "form-control" %>
     </p>
 
     <p>
-    <%= form.label :今遊びますか？ %>
-    <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
+      <%= form.label :今遊びますか？ %>
+      <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
     </p>
 
     <p>
-    <%= form.label :機種 %>
-    <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
+      <%= form.label :機種 %>
+      <%= form.select :machine, ["PC","スマホ","swhich","PS4","PSVITA","PS5","カードゲーム","xboxone","その他"],{include_blank:"選択"}, class:"form-control" %>
     </p>
 
     <p>
-    <%= form.label :オフライン？オンライン？ %>
-    <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
+      <%= form.label :オフライン？オンライン？ %>
+      <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
     </p>
 
     <p>
-    <%= form.label :目的 %>
-    <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
+      <%= form.label :目的 %>
+      <%= form.select :purpouse, ["フレンド","協力プレイ","対戦","練習","経験値稼ぎ","イベント周回","イベント参加","大会","楽しくお話","その他の目的"],{include_blank:"選択"}, class:"form-control" %>
     </p>
 
 
     <p>
-    <%= form.label :コメント %>
-    <%= form.text_area :comment, class: "form-control" %>
+      <%= form.label :コメント %>
+      <%= form.text_area :comment, class: "form-control" %>
     </p>
 
     <p>
-    <%= form.label :写真 %>
-    <%= form.file_field :image %>
+      <%= form.label :写真 %>
+      <%= form.file_field :image %>
     </p>
 
     <%= form.submit "募集を作成する",class: 'btn btn-primary' %>
-<% end %>
+  <% end %>
 </div>
