@@ -59,13 +59,13 @@
   <div>
   <div class = "reshowkakoi">
     <div class = "showleftmargin">
-      <p><%= recruitment.game_title %></p>
-      <p><%= recruitment.play_now %></p>
-      <p><%= recruitment.machine %></p>
-      <p><%= recruitment.on_off %></p>
-      <p><%= recruitment.purpouse %></p>
-      <p><%= recruitment.comment %></p>
-      <p><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
+      <p class = "p-space"><strong>ゲーム:</strong><%= recruitment.game_title %></p>
+      <p class = "p-space"><strong>今遊ぶ？:</strong><%= recruitment.play_now %></p>
+      <p class = "p-space"><strong>機種:</strong><%= recruitment.machine %></p>
+      <p class = "p-space"><strong>オン？オフ？:</strong><%= recruitment.on_off %></p>
+      <p class = "p-space"><strong>目的:</strong><%= recruitment.purpouse %></p>
+      <p class = "p-space"><strong>コメント:</strong><%= recruitment.comment %></p>
+      <p class = "p-space"><strong></strong><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
       <p><%= link_to '詳細を確認する', recruitment_path(recruitment.id) %></p>
   </div>
   </div>

@@ -1,5 +1,4 @@
 
-<p><%= notice %></p>
 <% if current_user.try(:admin?) %>
   <h1 class = "user-1">募集_admin</h1>
 <% else %>
@@ -68,32 +67,31 @@
   <% @recruitments.each do |recruitment| %>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
-    <p class = "icon"><%= recruitment.user.name %></p>
-    <p>
-    ゲーム:
+    <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
+    <p class = "p-space">
+    <strong>ゲーム:</strong>
     <%= recruitment.game_title %>
     </p>
-
-    <p>
-    いつ遊ぶ？:
+    <p class = "p-space">
+    <strong>いつ遊ぶ？:</strong>
     <%= recruitment.play_now %>
     </p>
-    <p>
-    機種:
+    <p class = "p-space">
+    <strong>機種:</strong>
     <%= recruitment.machine %>
     </p>
-    <p>
-    オン？オフ？:
+    <p class = "p-space">
+    <strong>オン？オフ？:</strong>
     <%= recruitment.on_off %>
     </p>
-    <p>
-    目的:
+    <p class = "p-space">
+    <strong>目的:</strong>
     <%= recruitment.purpouse %>
     </p>
-    <p>
-    コメント:
+    <p class = "p-space">
+    <strong>コメント:</strong>
     </p>
-    <p>
+    <p class = "p-space">
     <%= recruitment.comment %>
     </p>
 

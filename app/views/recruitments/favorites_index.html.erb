@@ -1,33 +1,22 @@
+<div class = "reeditpage">
 <h3>お気に入り一覧</h3>
-<table>
-  <thead>
-      <tr>
-      <th>ユーザーネーム</th>
-      <th>コメント</th>
-      <th>今遊ぶ？</th>
-      <th>ゲームタイトル</th>
-      <th>機種</th>
-      <th>画像</th>
-      <th>オンライン？オフライン？</th>
-      <th>目的</th>
-      </tr>
-  </thead>
-  <tbody>
     <% @user.favorites.each do |favorite| %>
-      <tr>
-        <td><%= favorite.recruitment.user.name %></td>
-        <td><%= favorite.recruitment.comment %></td>
-        <td><%= favorite.recruitment.play_now %></td>
-        <td><%= favorite.recruitment.game_title %></td>
-        <td><%= favorite.recruitment.machine %></td>
-
-        <td><%= favorite.recruitment.on_off %></td>
-        <td><%= favorite.recruitment.purpouse %></td>
-        <td><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></td>
-      </tr>
+      <div class = "reshowkakoi">
+      <div class = "showleftmargin">
+      <p><%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %></p>
+      <p class = "p-space"><strong><%= favorite.recruitment.user.name %></strong></p>
+      <p class = "p-space"><strong>ゲームタイトル:</strong><%= favorite.recruitment.game_title %></p>
+      <p class = "p-space"><strong>今遊ぶ？:</strong><%= favorite.recruitment.play_now %></p>
+      <p class = "p-space"><strong>機種:</strong><%= favorite.recruitment.machine %></p>
+      <p class = "p-space"><strong>オン？オフ？:</strong><%= favorite.recruitment.on_off %></p>
+      <p class = "p-space"><strong>目的:</strong><%= favorite.recruitment.purpouse %></p>
+      <p class = "p-space"><strong>コメント:</strong><%= favorite.recruitment.comment %></p>
+      <p><%= image_tag favorite.recruitment.image.to_s,class: "imgtext"%></p>
+      <p><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></p>
+      </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
 
 
