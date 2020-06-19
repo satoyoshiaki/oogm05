@@ -163,6 +163,7 @@
 
   .indexusername {
     margin-left: 10px;
+    color: black;
     /**/
   }
 
@@ -292,4 +293,9 @@ ul.pagination {
 .name-search {
   max-width: 500px;
   margin: auto;
+}
+
+.nav-string {
+  margin-left: 10px;
+  color:#666666
 }

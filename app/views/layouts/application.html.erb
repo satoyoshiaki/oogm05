@@ -24,16 +24,16 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0F">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "募集作成", recruitments_path %><span class="sr-only">(current)</span>
+            <%= link_to "募集作成", recruitments_path, class:"nav-string" %><span class="sr-only">(current)</span>
           </li>
           <li class="nav-item">
-            <%= link_to "プロフィール", user_path(current_user.id) %>
+            <%= link_to "ユーザー一覧", users_path, class:"nav-string" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ユーザー一覧", users_path %>
+            <%= link_to "プロフィール", user_path(current_user.id), class:"nav-string" %>
           </li>
           <li class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-string" %>
           </li>
         <% end %>
         </ul>
