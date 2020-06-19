@@ -27,4 +27,5 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_friendships.find_by(followed_id: other_user.id).destroy
   end
+  scope :name_search, ->(name){where("name like?", "%#{name}%")}
 end
