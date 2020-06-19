@@ -6,7 +6,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field-01">
-    <h2>ログイン</h2>
+    <h2>サインアップ</h2>
       <%= f.label :name %><br />
       <%= f.text_field :name, autofocus: true,  autocomplete: "name", class:'form-control' %>
     </div>
@@ -33,6 +33,7 @@
     <div class="actions-01">
       <%= f.submit t('.sign_up'),class: 'btn btn-primary' %>
     </div>
+
   <% end %>
 
 
