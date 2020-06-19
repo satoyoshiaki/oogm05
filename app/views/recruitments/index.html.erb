@@ -20,6 +20,7 @@
       <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
         <div class="field-02">
           <%= form.label :game_title, "ゲームタイトル" %>
+
           <%= form.text_field :game_title, class: "form-control" %>
         </div>
 

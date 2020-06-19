@@ -1,10 +1,19 @@
 
-<%= form_with url: users_path, method: :get, local: true do |form| %>
-  <%= form.label :name, "ユーザー名" %>
-  <%= form.text_field :name, class: "form-control" %>
-  <%= form.hidden_field :search, value:"true" %>
-  <%= form.submit name="検索する" %>
-<% end %>
+<div class = "name-search">
+  <%= form_with url: users_path, method: :get, local: true do |form| %>
+    <div class="container">
+    <div class="row">
+    <div class = "col-xs-12 col-lg-8">
+    <%= form.text_field :name, :placeholder => "ユーザー名" , class: "form-control" %>
+    <%= form.hidden_field :search, value:"true" %>
+    </div>
+    <div class = "col-xs-12 col-lg-2">
+    <%= form.submit name="検索する", class:"btn btn-primary"%>
+    </div>
+    </div>
+    </div>
+  <% end %>
+</div>
 
 
 

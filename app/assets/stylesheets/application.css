@@ -288,3 +288,8 @@ ul.pagination {
 .h4-up-space {
   margin-top: 40px;
 }
+
+.name-search {
+  max-width: 500px;
+  margin: auto;
+}
