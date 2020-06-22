@@ -2,7 +2,11 @@
   <h3>募集詳細画面</h3>
         <div class = "reshowkakoi">
           <div class = "showleftmargin">
-            <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %>
+            <% if @recruitment.image.blank? %>
+              <%= image_tag("user_icon.png") %>
+            <%else%>
+              <%= image_tag @recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+            <%end%>
             <p><strong><%= @recruitment.user.name %></strong></p><br>
             <div class="container">
               <div class="row">
