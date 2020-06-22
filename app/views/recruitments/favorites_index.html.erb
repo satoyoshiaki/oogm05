@@ -18,7 +18,14 @@
                 <p class = "p-space"><strong>コメント:</strong><br><%= favorite.recruitment.comment %></p>
               </div>
               <div class = "col-xs-12 col-lg-5">
-                <p><%= image_tag favorite.recruitment.image.to_s,class: "imgtext"%></p>
+                <% if favorite.recruitment.image.blank? %>
+                <%else%>
+                    <p><%= image_tag favorite.recruitment.image.to_s, class: "imgsize" %></p>
+                <%end%>
+                <% if favorite.recruitment.youtube_url.blank? %>
+                <%else%>
+                    <iframe width="289" height="170" src="https://www.youtube.com/embed/<%= favorite.recruitment.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <%end%>
               </div>
             </div>
               <p><%= link_to '詳細を確認する', recruitment_path(favorite.recruitment.id) %></p>
