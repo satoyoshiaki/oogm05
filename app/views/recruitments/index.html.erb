@@ -63,7 +63,11 @@
 
   <% @recruitments.each do |recruitment| %>
     <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+        <% if recruitment.image.blank? %>
+          <%= image_tag("user_icon.png") %>
+        <%else%>
+            <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+        <%end%>
         <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
           <div class="container">
             <div class="row">
