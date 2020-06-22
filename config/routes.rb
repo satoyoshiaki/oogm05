@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   #   root :to => "devise/sessions#new"
   # end
 
-  devise_for :users, :controllers => {
-    sessions: 'users/sessions'
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   resources :friendships, only: [:create, :destroy]
