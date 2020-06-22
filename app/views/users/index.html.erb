@@ -26,7 +26,11 @@
     <% @users.each do |user| %>
       <div class = user-show>
         <% unless current_user.name == user.name %>
-          <%= image_tag user.icon.to_s, class:"usershow-icon" %>
+          <% if user.icon.blank? %>
+            <%= image_tag("user_icon.png") %>
+          <%else%>
+            <%= image_tag user.icon.to_s, class: "usershow-icon" %><br>
+          <%end%>
           <h5><%= link_to user.name, user, class:"indexusername"%></h5>
           <div class = "userindexcomment"><%= user.comment %></div>
           <%= render 'follow_form', user: user %>
