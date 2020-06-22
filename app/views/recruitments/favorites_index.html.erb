@@ -3,7 +3,11 @@
     <% @user.favorites.each do |favorite| %>
       <div class = "reshowkakoi">
         <div class = "showleftmargin">
-                <p><%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %></p>
+                <% if favorite.recruitment.image.blank? %>
+                <%= image_tag("user_icon.png") %>
+              <%else%>
+                  <%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+              <%end%>
                 <p class = "p-space"><strong><%= favorite.recruitment.user.name %></strong></p>
           <div class="container">
             <div class="row">
