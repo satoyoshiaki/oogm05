@@ -2,7 +2,7 @@ class User < ApplicationRecord
   mount_uploader :icon, ImageUploader
   has_many :recruitments, dependent: :destroy
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :trackable
+         :recoverable, :rememberable, :validatable, :trackable, :omniauthable
 
   validates :name, presence: true
   validates :comment, length: { maximum: 250 }

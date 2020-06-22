@@ -78,3 +78,7 @@ gem 'bootstrap', '~> 4.1.1'
 
 gem 'kaminari'
 #ページネーション
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+#認証
