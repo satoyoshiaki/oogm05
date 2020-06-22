@@ -10,17 +10,17 @@
             <p><strong><%= @recruitment.user.name %></strong></p><br>
             <div class="container">
               <div class="row">
-                <div class = "col-xs-12 col-lg-3">
+                <div class = "col-xs-12 col-lg-4">
                   <strong>ゲームタイトル:</strong><%= @recruitment.game_title %><br>
                   <strong>今遊ぶ？:</strong><%= @recruitment.play_now %><br>
                   <strong>機種:</strong><%= @recruitment.machine %><br>
                   <strong>オン？オフ？:</strong><%= @recruitment.on_off %><br>
                   <strong>目的:</strong><%= @recruitment.purpouse %><br>
                 </div>
-                <div class = "col-xs-12 col-lg-3">
-                  <strong>コメント:</strong><br><%= @recruitment.comment %><br>
+                <div class = "col-xs-12 col-lg-4">
+                  <strong>コメント:</strong><br><%= simple_format(@recruitment.comment) %><br>
                 </div>
-                <div class = "col-xs-12 col-lg-6">
+                <div class = "col-xs-12 col-lg-4">
                   <% if @recruitment.image.blank? %>
                   <%else%>
                       <p><%= image_tag @recruitment.image.to_s, class: "imgsize" %></p>
