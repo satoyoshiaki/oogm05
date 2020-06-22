@@ -82,3 +82,7 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-facebook'
 #認証
+
+
+gem 'dotenv-rails'
+#環境変数
