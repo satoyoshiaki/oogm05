@@ -22,6 +22,11 @@ class RecruitmentsController < ApplicationController
       end
       def create
         @recruitment = current_user.recruitments.build(recruitment_params)
+
+        url = params[:recruitment][:youtube_url]
+        url = url.last(11)
+        @recruitment.youtube_url = url
+
         # @recruitment = Recruitment.new(recruitment_params)
         if @recruitment.save
           redirect_to recruitments_path, notice: "募集を作成しました！"

@@ -8,6 +8,7 @@ class CreaetRecruitments < ActiveRecord::Migration[5.2]
       t.string :image
       t.integer :on_off
       t.integer :purpouse
+      t.string :youtube_url
     end
   end
 end

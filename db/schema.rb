@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_06_12_062553) do
     t.string "image"
     t.integer "on_off"
     t.integer "purpouse"
+    t.string "youtube_url"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_recruitments_on_user_id"
   end

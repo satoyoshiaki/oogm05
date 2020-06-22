@@ -48,6 +48,11 @@
       <%= form.file_field :image %>
     </p>
 
+    <p>
+      <%= form.label :youtube_url%>
+      <%= form.text_field :youtube_url, :placeholder => "Youtube link upできます！", class: "form-control" %>
+    </p>
+
     <%= form.submit "募集を作成する",class: 'btn btn-primary' %>
   <% end %>
 </div>
