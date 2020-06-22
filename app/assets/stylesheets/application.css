@@ -115,9 +115,9 @@
   }
 
   .imgtext {
-    max-width: 340px;
-    max-height: 250px;
-    /**/
+    max-width: 289px;
+    max-height: 170px;
+    margin: 0px;
   }
 
   .user-show {
@@ -230,11 +230,12 @@
 }
 
 .imgsize {
-  max-width: 400px;
-  max-height: 200px;
+  max-width: 289px;
+  max-height: 170px;
   margin-left: 50px;
   margin-top: 30px;
   margin-bottom: 20px;
+  margin: 0px;
   /**/
 }
 .reshospaceup {
