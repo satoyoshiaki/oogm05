@@ -19,7 +19,7 @@
                 <p class = "p-space"><strong>目的:</strong><%= favorite.recruitment.purpouse %></p>
               </div>
               <div class = "col-xs-12 col-lg-4">
-                <p class = "p-space"><strong>コメント:</strong><br><%= favorite.recruitment.comment %></p>
+                <p class = "p-space"><strong>コメント:</strong><br><%= simple_format(favorite.recruitment.comment) %></p>
               </div>
               <div class = "col-xs-12 col-lg-5">
                 <% if favorite.recruitment.image.blank? %>
