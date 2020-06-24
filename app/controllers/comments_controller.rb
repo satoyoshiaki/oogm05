@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
         @comment = @recruitment.comments.build(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
+          CommentMailer.comment_mail(@comment).deliver
           redirect_back(fallback_location: recruitments_path)
         else
           redirect_back(fallback_location: recruitments_path)
