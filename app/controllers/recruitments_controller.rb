@@ -6,19 +6,27 @@ class RecruitmentsController < ApplicationController
         @recruitment = current_user.recruitments.build
 
         if params[:search].present?
-          if params[:game_title].present?
+          if params[:game_title].present? and params[:play_now].present? and params[:on_off].present?
+            @recruitments = @recruitments.game_title_search params[:game_title]
+            @recruitments = @recruitments.play_now_search params[:play_now]
+            @recruitments = @recruitments.on_off_search params[:on_off]
+          elsif params[:game_title].present? and params[:play_now].present?
+            @recruitments = @recruitments.game_title_search params[:game_title]
+            @recruitments = @recruitments.play_now_search params[:play_now]
+          elsif params[:play_now].present? and params[:on_off].present?
+            @recruitments = @recruitments.on_off_search params[:on_off]
+            @recruitments = @recruitments.play_now_search params[:play_now]
+          elsif params[:game_title].present? and params[:on_off].present?
+            @recruitments = @recruitments.on_off_search params[:on_off]
             @recruitments = @recruitments.game_title_search params[:game_title]
           elsif params[:play_now].present?
             @recruitments = @recruitments.play_now_search params[:play_now]
-          elsif params[:machine].present?
-            @recruitments = @recruitments.machine_search params[:machine]
           elsif params[:on_off].present?
             @recruitments = @recruitments.on_off_search params[:on_off]
-          elsif params[:purpouse].present?
-            @recruitments = @recruitments.on_off_search params[:purpouse]
+          elsif params[:game_title].present?
+            @recruitments = @recruitments.game_title_search params[:game_title]
           end
         end
-
       end
       def create
         @recruitment = current_user.recruitments.build(recruitment_params)
