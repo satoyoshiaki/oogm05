@@ -5,7 +5,7 @@
       <%= f.submit "フォロー",class:"btn btn-outline-primary followbtn" %>
     <% end %>
   <% else %>
-    <%= form_with(model: current_user.active_friendships.find_by(followed_id: user.id), method: :delete ) do |f| %>
+    <%= form_with(model: current_user.active_friendships.find_by(followed_id: user.id), method: :delete) do |f| %>
       <%= f.submit "アンフォロー",class:"btn btn-danger followbtn" %>
     <% end %>
   <% end %>
