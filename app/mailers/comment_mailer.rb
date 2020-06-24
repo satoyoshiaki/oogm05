@@ -1,6 +1,6 @@
 class CommentMailer < ApplicationMailer
-    def contact_mail(contact)
-        @contact = contact
+    def comment_mail(comment)
+        @comment = comment
         mail to: "yoshiprograming@gmail.com", subject: "OOGM!メッセージが届きましたよ！"
     end
 end
