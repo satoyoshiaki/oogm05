@@ -7,7 +7,13 @@
     <% if message.body.present? %>
       <div class="item">
         <div class="content">
-          <div class="header"><%= image_tag message.user.icon.to_s, class:"usershow-icon" %><strong><%= message.user.name %></strong></div>
+          <div class="header">
+            <% if message.user.icon.blank? %>
+              <%= image_tag("user_icon.png") %>
+            <%else%>
+                <%= image_tag message.user.icon.to_s, class: "usershow-icon" %><br>
+            <%end%>
+          <strong><%= message.user.name %></strong></div>
           <div class="list">
             <div class="item01">
               <i class="right triangle icon"></i>
