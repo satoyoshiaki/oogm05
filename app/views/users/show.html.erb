@@ -6,7 +6,7 @@
       <%= image_tag @user.icon.to_s, class: "usershow-icon" %><br>
   <%end%>
   <p><strong>プロフィール:</strong></p><p><%= simple_format(@user.comment) %></p>
-
+  <%= render partial: 'follow_form', locals: { user: @user } %>
 
   <% if @user.id == current_user.id %>
       <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
@@ -30,6 +30,7 @@
           <tr>
             <% unless @user.name == user.name %>
               <td><%= user.name %></td>
+              <td><%= render partial: 'follow_form', locals: { user: user } %></td>
               <td><%= link_to '詳細', user_path(user) %></td>
               <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
             <% end %>
@@ -47,6 +48,7 @@
         <tr>
           <% unless @user.name == user.name %>
             <td><%= user.name %></td>
+            <td><%= render partial: 'follow_form', locals: { user: user } %></td>
             <td><%= link_to '詳細', user_path(user) %></td>
             <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
           <% end %>
