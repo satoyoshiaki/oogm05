@@ -58,7 +58,7 @@
         <%else%>
             <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
         <%end%>
-        <p class = "icon"><strong><%= recruitment.user.name %></strong></p>
+        <p class = "icon"><strong><%= link_to recruitment.user.name, recruitment.user%></strong></p>
           <div class="container">
             <div class="row">
               <div class = "col-xs-12 col-lg-4">
