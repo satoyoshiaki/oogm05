@@ -98,3 +98,6 @@ gem 'omniauth-facebook'
 
 gem 'font-awesome-sass'
 #フォント
+
+gem 'fog-aws'
+#S3
