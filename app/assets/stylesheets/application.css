@@ -347,3 +347,7 @@ ul.pagination {
   margin: auto;
   text-align: center;
 }
+
+.followbtn {
+  margin: 0px;
+}

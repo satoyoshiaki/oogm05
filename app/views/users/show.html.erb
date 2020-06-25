@@ -8,9 +8,9 @@
   <p><strong>プロフィール:</strong></p><p><%= simple_format(@user.comment) %></p>
 
   <% unless @user.id == current_user.id %>
-    <%= render partial: 'follow_form', locals: { user: @user } %>
+    <%= render partial: 'follow_form', locals: { user: @user },class:"followbtn" %>
   <% else %>
-    <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
+    <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id),class:"btn btn-outline-secondary" %><br>
   <% end %>
   <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post,class:"message" %>
   <%= link_to "お気に入り一覧",  favorites_index_path(@user) %><br>
@@ -30,12 +30,11 @@
         <table>
           <tr>
             <% unless @user.name == user.name %>
-              <td><%= user.name %></td>
+              <td><%= link_to user.name, user_path(user), class:"indexusername" %></td>
               <td><%= render partial: 'follow_form', locals: { user: user } %></td>
-              <td><%= link_to '詳細', user_path(user) %></td>
               <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
             <% end %>
-            </tr>
+          </tr>
         </table>
       <% end %>
     </div>
@@ -48,9 +47,8 @@
       <table>
         <tr>
           <% unless @user.name == user.name %>
-            <td><%= user.name %></td>
+            <td><%= link_to user.name, user_path(user), class:"indexusername" %></td>
             <td><%= render partial: 'follow_form', locals: { user: user } %></td>
-            <td><%= link_to '詳細', user_path(user) %></td>
             <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
           <% end %>
         </tr>
