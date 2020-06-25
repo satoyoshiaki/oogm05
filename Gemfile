@@ -94,3 +94,7 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-facebook'
 #認証
+
+
+gem 'font-awesome-sass'
+#フォント
