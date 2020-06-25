@@ -41,6 +41,13 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
   #環境変数
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  # capistranoのツール一式
+
 
   gem 'spring'
   gem 'rspec-rails'
@@ -101,3 +108,11 @@ gem 'font-awesome-sass'
 
 gem 'fog-aws'
 #S3
+
+gem 'dotenv-rails'
+# 開発環境で環境変数を操作するのに必要
+gem 'unicorn'
+# アプリケーションサーバのunicorn
+gem 'mini_racer', platforms: :ruby
+# デプロイ時に必要
+
