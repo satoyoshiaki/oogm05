@@ -2,13 +2,9 @@
   <%= form_with(model: @recruitment, local: true) do |form| %>
     <% if @recruitment.errors.any? %>
       <div id="error_explanation">
-        <h2><%= @recruitment.errors.count %>件のエラーがあります。</h2>
-        <p>作成し直してください</p>
-        <ul>
-        <% @recruitment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
+        <h2>入力に<%= @recruitment.errors.count %>件の不備があります。</h2>
+        <h4>作成し直してください</h4>
+        <h4>※画像-YouTube以外の項目は入力必須です！</h4>
       </div>
     <% end %>
 
