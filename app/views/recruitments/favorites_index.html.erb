@@ -8,7 +8,7 @@
                 <%else%>
                   <%= image_tag favorite.recruitment.user.icon.to_s, class: "usershow-icon" %><br>
                 <%end%>
-                <p class = "p-space"><strong><%= favorite.recruitment.user.name %></strong></p>
+                <p class = "p-space"><strong><%= link_to favorite.recruitment.user.name, favorite.recruitment.user, class:"indexusername" %></strong></p>
           <div class="container">
             <div class="row">
               <div class = "col-xs-12 col-lg-3">
