@@ -39,8 +39,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'dotenv-rails'
-  #環境変数
 
   gem 'spring'
   gem 'rspec-rails'
@@ -109,3 +107,6 @@ gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+
+gem 'dotenv-rails'
+#環境変数
