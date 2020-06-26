@@ -106,3 +106,6 @@ gem 'fog-aws'
 
 gem 'unicorn' # アプリケーションサーバのunicorn
 gem 'mini_racer', platforms: :ruby # デプロイ時に必要
+
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
