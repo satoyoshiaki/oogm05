@@ -4,7 +4,7 @@ lock '3.6.0'
 set :application, 'oogm05'
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
-set :repo_url, 'https://github.com/satoyoshiaki/oogm06'
+set :repo_url, 'https://github.com/satoyoshiaki/oogm05'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'
 # deploy先のディレクトリ。
