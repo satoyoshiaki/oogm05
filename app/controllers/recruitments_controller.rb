@@ -42,6 +42,9 @@ class RecruitmentsController < ApplicationController
           render :edit
         end
       end
+      def new
+        @recruitment = Recruitment.new
+      end
 
       def show
         @favorite = current_user.favorites.find_by(recruitment_id: @recruitment.id)

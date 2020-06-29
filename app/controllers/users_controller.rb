@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+
+  def follows
+    @user = User.find(params[:user_id])
+  end
+
+  def followers
+    @user = User.find(params[:user_id])
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -12,6 +21,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
   private
   def feed_params
     params.require(:user).permit(:icon, :image, :image_cache)

@@ -16,46 +16,14 @@
   <%= link_to "お気に入り一覧",  favorites_index_path(@user) %><br>
 
 
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample03" aria-expanded="false" aria-controls="collapseExample">
-      フォロー▼
-    </button>
-
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample02" aria-expanded="false" aria-controls="collapseExample">
-      フォロワー▼
-    </button>
-
-    <div class="collapse" id="collapseExample03">
-    <div class="card card-body">
-      <% @user.following.each do |user| %>
-        <table>
-          <tr>
-            <% unless @user.name == user.name %>
-              <td><%= link_to user.name, user_path(user), class:"indexusername" %></td>
-              <td><%= render partial: 'follow_form', locals: { user: user } %></td>
-              <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-            <% end %>
-          </tr>
-        </table>
-      <% end %>
-    </div>
-  </div>
+<%= link_to user_follows_path(user_id: @user.id), class: "btn btn-primary" do %>
+フォロー<%= @user.following.count %>人
+<% end %>
 
 
-  <div class="collapse" id="collapseExample02">
-    <div class="card card-body">
-    <% @user.followers.each do |user| %>
-      <table>
-        <tr>
-          <% unless @user.name == user.name %>
-            <td><%= link_to user.name, user_path(user), class:"indexusername" %></td>
-            <td><%= render partial: 'follow_form', locals: { user: user } %></td>
-            <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
-          <% end %>
-        </tr>
-      </table>
-    <% end %>
-    </div>
-  </div>
+<%= link_to user_followers_path(user_id: @user.id), class: "btn btn-primary" do %>
+フォロワー<%= @user.followers.count %>人
+<% end %>
 
 
   <h4 class = "h4-up-space">過去の投稿</h4>

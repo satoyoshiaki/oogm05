@@ -1,113 +1,97 @@
 
 <% if current_user.try(:admin?) %>
-  <h1 class = "user-1">募集_admin</h1>
+<h1 class = "user-1">募集_admin</h1>
 <% else %>
-  <h3 class = "user-1">募集一覧</h3>
+<h3 class = "user-1">募集一覧</h3>
 <% end %>
 
 
-<p>
-  <button class="btn btn-primary btnspace002" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" alt = "kensaku">
-    検索する▼
-  </button>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample01" aria-expanded="false" aria-controls="collapseExample" alt = "bosyu">
-    募集する▼
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="search_form">
-      <%= form_with url: recruitments_path, method: :get, local: true do |form| %>
-        <div class="field-02">
-          <%= form.label :game_title, "ゲームタイトル" %>
+<div class="search_form">
+<%= form_with url: recruitments_path, method: :get, local: true do |form| %>
+  <div class="field-02">
+    <%= form.label :game_title, "ゲームタイトル" %>
 
-          <%= form.text_field :game_title, :placeholder => "ゲームタイトル", class: "form-control" %>
-        </div>
-
-        <div class="field-02">
-          <%= form.label :play_now, "いつ遊ぶ検索" %>
-          <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
-        </div>
-
-        <div class="field-02">
-          <%= form.label :on_off, "オンライン？オフライン？" %>
-          <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
-        </div>
-
-        <div class="searchbtn">
-          <%= form.hidden_field :search, value:"true" %>
-          <%= form.submit "検索",class: 'btn btn-primary'%>
-        </div>
-      <% end %>
-    </div>
+    <%= form.text_field :game_title, :placeholder => "ゲームタイトル", class: "form-control" %>
   </div>
+
+  <div class="field-02">
+    <%= form.label :play_now, "いつ遊ぶ検索" %>
+    <%= form.select :play_now, ["今遊ぶ","定期的に","あとで","いつか"],{include_blank:"選択"}, class:"form-control" %>
+  </div>
+
+  <div class="field-02">
+    <%= form.label :on_off, "オンライン？オフライン？" %>
+    <%= form.select :on_off, ["オンライン","オフライン"],{include_blank:"選択"}, class:"form-control" %>
+  </div>
+
+  <div class="searchbtn">
+    <%= form.hidden_field :search, value:"true" %>
+    <%= form.submit "検索",class: 'btn btn-primary'%>
+  </div>
+<% end %>
 </div>
 
-<div class="collapse" id="collapseExample01">
-  <div class="card card-body">
-    <h2>募集を作成する</h2>
-    <%= render 'form', class: "page-size" %>
-  </div>
-</div>
+<div class="searchbtn">
+<p><%= link_to "募集する",new_recruitment_path, class: "btn btn-primary"%></p>
+<div class="searchbtn">
 
-
-  <% @recruitments.each do |recruitment| %>
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <% if recruitment.user.icon.blank? %>
-          <%= image_tag("user_icon.png") %>
-        <%else%>
-            <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
-        <%end%>
-        <p><strong><%= link_to recruitment.user.name, recruitment.user, class:"indexusername" %></strong></p>
-          <div class="container">
-            <div class="row">
-              <div class = "col-xs-12 col-lg-4">
-                <p class = "p-space">
-                  <strong>ゲーム:</strong>
-                  <%= recruitment.game_title %>
-                </p>
-                <p class = "p-space">
-                  <strong>いつ遊ぶ？:</strong>
-                  <%= recruitment.play_now %>
-                </p>
-                <p class = "p-space">
-                  <strong>機種:</strong>
-                  <%= recruitment.machine %>
-                </p>
-                <p class = "p-space">
-                  <strong>オン？オフ？:</strong>
-                  <%= recruitment.on_off %>
-                </p>
-                <p class = "p-space">
-                  <strong>目的:</strong>
-                  <%= recruitment.purpouse %>
-                </p>
-              </div>
-              <div class = "col-xs-12 col-lg-4">
-                <p class = "p-space">
-                  <strong>コメント:</strong>
-                </p>
-                <p class = "p-space">
-                  <%= simple_format(recruitment.comment) %>
-                </p>
-              </div>
+<% @recruitments.each do |recruitment| %>
+  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+      <% if recruitment.user.icon.blank? %>
+        <%= image_tag("user_icon.png") %>
+      <%else%>
+          <%= image_tag recruitment.user.icon.to_s, class: "usershow-icon" %><br>
+      <%end%>
+      <p><strong><%= link_to recruitment.user.name, recruitment.user, class:"indexusername" %></strong></p>
+        <div class="container">
+          <div class="row">
             <div class = "col-xs-12 col-lg-4">
-              <% if recruitment.image.blank? %>
-              <%else%>
-                  <p><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
-              <%end%>
-
-              <% if recruitment.youtube_url.blank? %>
-              <%else%>
-                  <iframe width="289" height="170" src="https://www.youtube.com/embed/<%= recruitment.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              <%end%>
+              <p class = "p-space">
+                <strong>ゲーム:</strong>
+                <%= recruitment.game_title %>
+              </p>
+              <p class = "p-space">
+                <strong>いつ遊ぶ？:</strong>
+                <%= recruitment.play_now %>
+              </p>
+              <p class = "p-space">
+                <strong>機種:</strong>
+                <%= recruitment.machine %>
+              </p>
+              <p class = "p-space">
+                <strong>オン？オフ？:</strong>
+                <%= recruitment.on_off %>
+              </p>
+              <p class = "p-space">
+                <strong>目的:</strong>
+                <%= recruitment.purpouse %>
+              </p>
             </div>
-            <br>
+            <div class = "col-xs-12 col-lg-4">
+              <p class = "p-space">
+                <strong>コメント:</strong>
+              </p>
+              <p class = "p-space">
+                <%= simple_format(recruitment.comment) %>
+              </p>
+            </div>
+          <div class = "col-xs-12 col-lg-4">
+            <% if recruitment.image.blank? %>
+            <%else%>
+                <p><%= image_tag recruitment.image.to_s, class: "imgsize" %></p>
+            <%end%>
+
+            <% if recruitment.youtube_url.blank? %>
+            <%else%>
+                <iframe width="289" height="170" src="https://www.youtube.com/embed/<%= recruitment.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <%end%>
           </div>
-          <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
+          <br>
         </div>
+        <%= link_to '詳細を確認する', recruitment_path(recruitment.id), class:"btnshow" %>
       </div>
-  <% end %>
     </div>
-  <%= paginate @recruitments %>
-  <br>
+<% end %>
+  </div>
+<%= paginate @recruitments %>
+<br>

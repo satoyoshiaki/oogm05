@@ -22,6 +22,11 @@ Rails.application.routes.draw do
 
   resources :friendships, only: [:create, :destroy]
 
+  resources :users do
+    get  "/follows", to: "users#follows", as: 'follows'
+    get  "/followers", to: "users#followers", as: 'followers'
+  end
+
   devise_scope :user do
     root "users/sessions#new"
   end
