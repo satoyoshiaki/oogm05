@@ -89,7 +89,7 @@ gem 'cancancan'
 #画像投稿のやつ
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'kaminari'
 #ページネーション
