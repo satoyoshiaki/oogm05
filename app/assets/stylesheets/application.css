@@ -14,9 +14,10 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap";
 
- /**/
+
 .space {
     height: 60px;
     /*ヘッダーとタイトルがかぶらないようにしたもの*/
