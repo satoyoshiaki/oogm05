@@ -110,3 +110,5 @@ gem 'omniauth-facebook'
 
 gem 'dotenv-rails'
 #環境変数
+
+gem "jquery-rails"
