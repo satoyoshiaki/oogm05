@@ -8,10 +8,10 @@
 
 20.times do |n|
     User.create!(
-      name: "user#{n+様}",
-      email: "user#{n+sama}@g.c",
-      password: "password#{n+sama}",
-      password_confirmation: "password#{n+sama}",
+      name: "user#{n+10}",
+      email: "user#{n+10}@g.c",
+      password: "password#{n+10}",
+      password_confirmation: "password#{n+10}",
       uid: "#{n+100}",
       provider: ""
     )
