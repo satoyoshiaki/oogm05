@@ -1,20 +1,19 @@
 
-<div class = "name-search">
-  <%= form_with url: users_path, method: :get, local: true do |form| %>
-    <div class="container">
-    <div class="row">
-    <div class = "col-xs-12 col-lg-8">
-    <%= form.text_field :name, :placeholder => "ユーザー名" , class: "form-control" %>
-    <%= form.hidden_field :search, value:"true" %>
-    </div>
-    <div class = "col-xs-12 col-lg-2">
-    <%= form.submit name="検索する", class:"btn btn-primary"%>
-    </div>
-    </div>
-    </div>
-  <% end %>
-</div>
 
+<div class = "name-search">
+<%= search_form_for @q do |f| %>
+  <div class="container">
+  <div class="row">
+  <div class = "col-xs-12 col-lg-8">
+  <%= f.search_field :name_cont, :placeholder => "ユーザー名" , class: "form-control"  %>
+  </div>
+  <div class = "col-xs-12 col-lg-2">
+  <%= f.submit name="検索する", class:"btn btn-primary" %>
+  </div>
+  </div>
+  </div>
+<% end %>
+</div>
 
 
 <% provide(:title, 'All users') %>

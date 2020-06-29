@@ -112,3 +112,6 @@ gem 'dotenv-rails'
 #環境変数
 
 gem "jquery-rails"
+
+gem 'ransack'
+#検索のgem

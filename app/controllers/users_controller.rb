@@ -13,8 +13,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order(id: "DESC").page(params[:page]).per(40)
-
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true).page(params[:page]).per(40)
+    # @users = User.all.order(id: "DESC").page(params[:page]).per(40)
     if params[:search].present?
       if params[:name].present?
         @users = @users.name_search params[:name]
