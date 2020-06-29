@@ -1,7 +1,7 @@
 
 <% if current_user.try(:admin?) %>
 <h1 class = "user-1">募集_admin</h1>
-<a href="/admin" >管理専用リンク</a>
+<a href="/admin", class ="btn btn-secondary kanri" >管理画面へ</a>
 <% else %>
 <h3 class = "user-1">募集一覧</h3>
 <% end %>
