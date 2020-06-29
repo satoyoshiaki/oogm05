@@ -98,15 +98,15 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #認証
 
-gem 'fog-aws'
+# gem 'fog-aws'
 
 
 
-gem 'unicorn' # アプリケーションサーバのunicorn
-gem 'mini_racer', platforms: :ruby # デプロイ時に必要
+# gem 'unicorn' # アプリケーションサーバのunicorn
+# gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
+# gem 'ed25519'
+# gem 'bcrypt_pbkdf'
 
 gem 'dotenv-rails'
 #環境変数
