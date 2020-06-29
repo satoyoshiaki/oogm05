@@ -16,7 +16,7 @@ Ruby 2.6.5 Rails 5.2.4
 * 募集編集機能 募集した人のみが可能。
 * ダイレクトメッセージ機能
 * 募集詳細画面でコメントが書ける。
-* コメントの編集と削除が出来る 編集と削除は書いた本人のみ可能。
+* コメント機能
 * 条件指定で絞り込み検索ができる
 
 ### カタログ設計、テーブル定義、画面遷移図、画面ワイヤーフレーム
@@ -26,7 +26,7 @@ https://docs.google.com/spreadsheets/d/1DkGX1KVGxSzz_b6d6LcHKUooEzKW2mMUZu7ky9iY
 * mini_magic
 * devise
 * devise-i18n
-* admin
+* rails_admin
 * ransack
 * rails_admin
 * cancancan
