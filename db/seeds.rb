@@ -16,14 +16,3 @@
       provider: ""
     )
   end
-
-
-  User.create!(
-  name: "admin_user",
-  email: "admin_user@examp.com",
-  password: "adminpassword",
-  password_confirmation: "adminpassword",
-  uid: "812345",
-  provider: "",
-  admin: 'true'
-)
